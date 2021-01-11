@@ -48,7 +48,7 @@ function TodoList(props: TodoListType) {
 
     return (
         <div>
-            <h3>{props.title}<button onClick={ removeTodoList }>x1</button></h3>
+            <h3>{props.title}<button onClick={ removeTodoList }>x</button></h3>
             <div>
                 <input
                     value={title}
