@@ -27,13 +27,15 @@ type ChangeTaskTitleActionType = {
     todoListId: string
 }
 
+let initialState:TaskStateType  = {}
+
 
 export type ActionType = RemoveActionType
     | AddActionType | ChangeTaskStatusActionType
     | ChangeTaskTitleActionType | AddTodoListActionType
     | RemoveTodoListActionType
 
-export function tasksReducer(state: TaskStateType, action: ActionType) {
+export function tasksReducer(state = initialState, action: ActionType) {
     switch (action.type) {
         case 'REMOVE-TASK': {
             let copyState = {...state}
