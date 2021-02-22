@@ -1,18 +1,26 @@
-
-
-h3{
-    color: darkred;
+/*
+.App {
+  padding: 30px;
+  display: flex;
 }
 
-input:focus{
-    background-color: #e0ca7e;
+.App > div {
+  margin-right: 50px;
 }
 
+.error {
+  border: red 1px solid;
+}
 
-.is-done{
+.error-message {
+  color: red;
+}
+
+.active-filter {
+  background-color: aquamarine;
+}
+
+.is-done {
   opacity: 0.5;
 }
-
-
-
-
+*/

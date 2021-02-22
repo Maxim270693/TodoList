@@ -1,37 +1,28 @@
-import {ActionType, useReducer, UserType} from "./user-reducer";
+import {userReducer} from './user-reducer';
 
-test("increment age", () => {
-    const startUser: UserType = {
-        name: 'Alex',
-        age: 23,
-        childrenCount: 3
-    }
+test('user reducer should increment only age', () => {
+    const startState = { age: 20, childrenCount: 2, name: 'Dimych' };
 
-    const myAction: ActionType = {type: 'INCREMENT-AGE'}
+    const endState = userReducer(startState, { type: 'INCREMENT-AGE' })
 
-    const endUser = useReducer(startUser, myAction)
+    expect(endState.age).toBe(21);
+    expect(endState.childrenCount).toBe(2);
+});
 
-    expect(endUser.age).toBe(24)
-})
-test("increment childrenCount", () => {
-    const startUser: UserType = {
-        name: 'Alex',
-        age: 23,
-        childrenCount: 3
-    }
+test('user reducer should increment only childrenCount', () => {
+    const startState = { age: 20, childrenCount: 2, name: 'Dimych' };
 
-    const endUser = useReducer(startUser, {type: 'INCREMENT-CHILDREN-COUNT'})
+    const endState = userReducer(startState, { type: 'INCREMENT-CHILDREN-COUNT' })
 
-    expect(endUser.childrenCount).toBe(4)
-})
-test("change name", () => {
-    const startUser: UserType = {
-        name: 'Alex',
-        age: 23,
-        childrenCount: 3
-    }
+    expect(endState.childrenCount).toBe(3);
+    expect(endState.age).toBe(20);
+});
 
-    const endUser = useReducer(startUser, {type: 'CHANGE-NAME', newName: 'bob'})
+test('user reducer should change name of user', () => {
+    const startState = { name: 'Dimych', age: 20, childrenCount: 2 };
+    const newName = 'Viktor';
 
-    expect(endUser.name).toBe('bob')
-})
+    const endState = userReducer(startState, { type: 'CHANGE-NAME', newName: newName })
+
+    expect(endState.name).toBe(newName);
+});
